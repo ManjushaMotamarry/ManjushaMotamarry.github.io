@@ -9,6 +9,19 @@
         html {
             scroll-behavior: smooth;
         }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card.hidden {
+            display: none;
+        }
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active {
+            background-color: rgb(59 130 246);
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -96,7 +109,7 @@
                 large language models.
             </p>
             <p class="text-lg text-slate-300 leading-relaxed">
-                My expertise spans across deep learning, natural language processing, and MLOps. I'm passionate about leveraging 
+                My expertise spans across deep learning, natural language processing, and data analytics. I'm passionate about leveraging 
                 cutting-edge technologies like TensorFlow, PyTorch, and Hugging Face to create intelligent systems that make a 
                 measurable impact. When I'm not coding, I enjoy mentoring students and contributing to the data science community.
             </p>
@@ -159,11 +172,28 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-4xl font-bold mb-12 text-center">Projects</h3>
+            <h3 class="text-4xl font-bold mb-8 text-center">Projects</h3>
+            
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="filter-btn active px-6 py-2 bg-slate-700 rounded-lg hover:bg-blue-500 transition font-semibold" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-2 bg-slate-700 rounded-lg hover:bg-blue-500 transition font-semibold" data-filter="ml">
+                    Machine Learning & AI
+                </button>
+                <button class="filter-btn px-6 py-2 bg-slate-700 rounded-lg hover:bg-blue-500 transition font-semibold" data-filter="analytics">
+                    Data Analytics
+                </button>
+                <button class="filter-btn px-6 py-2 bg-slate-700 rounded-lg hover:bg-blue-500 transition font-semibold" data-filter="nlp">
+                    NLP
+                </button>
+            </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Project 1 -->
-                <div class="bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition">
+                <!-- ML Project 1 -->
+                <div class="project-card bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition" data-category="ml">
                     <h4 class="text-2xl font-bold mb-3">TumorNet: Breast Cancer Detection</h4>
                     <p class="text-slate-300 mb-4">Developed a Neural Network model achieving 97.37% accuracy and F1 score of 95.77% for classifying breast cancer tumors, improving early detection reliability.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
@@ -182,8 +212,28 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition">
+                <!-- Analytics Project 1 -->
+                <div class="project-card bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition" data-category="analytics">
+                    <h4 class="text-2xl font-bold mb-3">Exploring Food Kiosk Data: Trends and Analysis</h4>
+                    <p class="text-slate-300 mb-4">Analyzed sales and transaction data to identify key trends, optimize pricing strategies, and understand seasonal impacts. Utilized SQL within R for data preprocessing and integration.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">R</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">SQL</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">ggplot2</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">EDA</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/manjushamanju1" class="flex items-center gap-1 text-blue-400 hover:text-blue-300">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Analytics Project 2 -->
+                <div class="project-card bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition" data-category="analytics">
                     <h4 class="text-2xl font-bold mb-3">Time Series Forecasting for Champagne Sales</h4>
                     <p class="text-slate-300 mb-4">Built a SARIMAX model generating 24-month forecasts with an AIC score of 1911.6, aiding strategic planning by anticipating seasonal sales patterns.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
@@ -202,8 +252,28 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition">
+                <!-- Analytics Project 3 -->
+                <div class="project-card bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition" data-category="analytics">
+                    <h4 class="text-2xl font-bold mb-3">Food Delivery Analytics Dashboard</h4>
+                    <p class="text-slate-300 mb-4">Developed Power BI sales dashboard integrating 5+ data sources, achieving 30% faster data refresh rate and identifying top-performing cities with 40% higher sales.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Power BI</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Data Modeling</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">ETL</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">KPI Analysis</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/manjushamanju1" class="flex items-center gap-1 text-blue-400 hover:text-blue-300">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            Code
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ML Project 2 -->
+                <div class="project-card bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition" data-category="ml">
                     <h4 class="text-2xl font-bold mb-3">CNN for Flood Detection on SAR Images</h4>
                     <p class="text-slate-300 mb-4">Developed a CNN-based flood detection model from satellite images, achieving 85% validation accuracy, enhancing disaster response capabilities.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
@@ -221,6 +291,22 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- NLP Project -->
+                <div class="project-card bg-slate-800 rounded-lg p-6 hover:transform hover:scale-105 transition" data-category="nlp ml">
+                    <h4 class="text-2xl font-bold mb-3">Conversational AI Agent for Welcome Calls</h4>
+                    <p class="text-slate-300 mb-4">Engineered a real-time conversational AI system integrating Genesys, AudioHook, FastAPI, and Gemini models with DFS-driven dialogue management for accurate identity verification. Built during co-op at Lendbuzz.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">FastAPI</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Gemini AI</span>
+                        <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">NLP</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-slate-400 text-sm italic">Proprietary project - Code not available</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -313,7 +399,7 @@
                         <p class="text-slate-400">Expected May 2026</p>
                     </div>
                     <p class="text-lg text-slate-300">GPA: 3.86/4.0</p>
-                    <p class="text-slate-400 mt-2">Relevant Courses: Supervised & Unsupervised Machine Learning, Algorithms, Natural Language Processing</p>
+                    <p class="text-slate-400 mt-2">Relevant Courses: Introduction to Data Management and Processing, Supervised Machine Learning, Natural Language Processing</p>
                 </div>
 
                 <!-- GITAM -->
@@ -369,6 +455,34 @@
                 mobileMenu.classList.add('hidden');
                 menuIcon.classList.remove('hidden');
                 closeIcon.classList.add('hidden');
+            });
+        });
+
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        if (categories.includes(filter)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
             });
         });
     </script>
