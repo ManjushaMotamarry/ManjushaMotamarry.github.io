@@ -1,0 +1,38 @@
+{
+  "entities": [
+    {
+      "name": "Google Cloud",
+      "type": "OTHER",
+      "metadata": {
+        "mid": "/m/0105pbj4",
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Google_Cloud_Platform"
+      },
+      "salience": 0.679983,
+      "mentions": [
+        {
+          "text": {
+            "content": "Google Cloud",
+            "beginOffset": 0
+          },
+          "type": "PROPER"
+        }
+      ]
+    },
+    {
+      "name": "building machine learning applications",
+      "type": "LOCATION",
+      "metadata": {},
+      "salience": 0.320017,
+      "mentions": [
+        {
+          "text": {
+            "content": "building machine learning applications",
+            "beginOffset": 28
+          },
+          "type": "COMMON"
+        }
+      ]
+    }
+  ],
+  "language": "en"
+}
